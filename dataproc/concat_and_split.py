@@ -22,7 +22,8 @@ def concat_data(labelsfile, notes_file):
         print("CONCATENATING")
         with open(notes_file, 'r') as notesfile:
             outfilename = '%s/notes_labeled.csv' % MIMIC_3_DIR
-            with open(outfilename, 'w') as outfile:
+            # This change is necessary to avoid writing empty lines to the outfile.
+            with open(outfilename, 'w', newline='') as outfile:
                 w = csv.writer(outfile)
                 w.writerow(['SUBJECT_ID', 'HADM_ID', 'TEXT', 'LABELS'])
 
@@ -74,16 +75,17 @@ def split_data(labeledfile, base_name):
             if i % 10000 == 0:
                 print(str(i) + " read")
 
-            hadm_id = row[1]
+            if len(row) > 1:
+                hadm_id = row[1]
 
-            if hadm_id in hadm_ids['train']:
-                train_file.write(','.join(row) + "\n")
-            elif hadm_id in hadm_ids['dev']:
-                dev_file.write(','.join(row) + "\n")
-            elif hadm_id in hadm_ids['test']:
-                test_file.write(','.join(row) + "\n")
+                if hadm_id in hadm_ids['train']:
+                    train_file.write(','.join(row) + "\n")
+                elif hadm_id in hadm_ids['dev']:
+                    dev_file.write(','.join(row) + "\n")
+                elif hadm_id in hadm_ids['test']:
+                    test_file.write(','.join(row) + "\n")
 
-            i += 1
+                i += 1
 
         train_file.close()
         dev_file.close()
