@@ -11,9 +11,6 @@ from torch.autograd import Variable
 import numpy as np
 
 from math import floor
-import random
-import sys
-import time
 
 from constants import *
 from dataproc import extract_wvs

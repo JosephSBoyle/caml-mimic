@@ -2,12 +2,9 @@
     Code to extract some examples of where the attention was focusing for input documents
 """
 import operator
-import random
-import sys
 
 import numpy as np
 
-import learn.models as models
 
 def save_samples(data, output, target_data, s, filter_size, tp_file, fp_file, dicts=None):
     """

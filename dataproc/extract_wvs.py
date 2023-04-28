@@ -1,13 +1,10 @@
 """
     Use the vocabulary to load a matrix of pre-trained word vectors
 """
-import csv
-import os
 import gensim.models
 from tqdm import tqdm
 
 from constants import *
-import datasets
 
 import numpy as np
 

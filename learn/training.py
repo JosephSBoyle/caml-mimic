@@ -10,8 +10,6 @@ import csv
 import argparse
 import os 
 import numpy as np
-import operator
-import random
 import sys
 import time
 from tqdm import tqdm
@@ -22,7 +20,6 @@ import datasets
 import evaluation
 import interpret
 import persistence
-import learn.models as models
 import learn.tools as tools
 
 def main(args):

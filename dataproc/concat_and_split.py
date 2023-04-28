@@ -2,13 +2,10 @@
     Concatenate the labels with the notes data and split using the saved splits
 """
 import csv
-from datetime import datetime
-import random
 
 from constants import DATA_DIR
 from constants import MIMIC_3_DIR
 
-import pandas as pd
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 

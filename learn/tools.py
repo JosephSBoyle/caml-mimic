@@ -1,20 +1,11 @@
 """
     Various utility methods
 """
-import csv
-import json
-import math
-import os
-import pickle
-
 import torch
-from torch.autograd import Variable
 
 from learn import models
 from constants import *
 import datasets
-import persistence
-import numpy as np
 
 def pick_model(args, dicts):
     """
